@@ -1,12 +1,15 @@
 <template>
   <div>
-
+    <div>{{ Film }}</div>
   </div>
 </template>
 
 <script>
 export default {
     name: 'MainPage',
+    props: {
+        Film: String,
+    }
 }
 </script>
 

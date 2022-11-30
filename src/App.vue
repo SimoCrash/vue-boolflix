@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderPage/>
-    <MainPage/>
+    <HeaderPage @searchValue="results"/>
+    <MainPage :Film="searchFilm"/>
   </div>
 </template>
 
@@ -13,8 +13,18 @@ export default {
   components: {
     HeaderPage,
     MainPage,
-  }
-}
+  },
+  data(){
+    return {
+      searchFilm: '',
+    };
+  },
+  methods: {
+    results(search){
+      this.searchFilm = search;
+    },
+  },
+};
 </script>
 
 <style>

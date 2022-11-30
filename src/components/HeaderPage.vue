@@ -2,7 +2,9 @@
   <div>
     <div class="container-header">
         <img src="https://boolflix.netlify.app/img/logo.png" alt="">
-        <input type="text" placeholder="Cerca film...">
+        <input type="text" placeholder="Cerca film..." 
+        v-model="searchBar"
+        @change="$emit('searchValue', searchBar)">
     </div>
   </div>
 </template>
@@ -10,8 +12,13 @@
 <script>
 export default {
     name: 'HeaderPage',
+    data(){
+        return {
+            searchBar: '',
+        };
+    },
 
-}
+};
 </script>
 
 <style lang="scss" scoped>

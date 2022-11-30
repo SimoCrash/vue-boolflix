@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage @searchValue="results"/>
-    <MainPage :Film="filmFound"/>
+    <MainPage :film="filmFound"/>
   </div>
 </template>
 

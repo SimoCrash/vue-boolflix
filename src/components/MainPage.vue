@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{ Film }}</div>
+    <div v-for="(filme, index) in film" :key="index">{{ filme.original_title }}</div>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
     name: 'MainPage',
     props: {
-        Film: Array,
+        film: Array,
     }
 }
 </script>

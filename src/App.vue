@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage @searchValue="results"/>
-    <MainPage :Film="searchFilm"/>
+    <MainPage :Film="filmFound"/>
   </div>
 </template>
 
@@ -17,26 +17,23 @@ export default {
   },
   data(){
     return {
-      searchFilm: '',
       filmFound: null,
     };
   },
   methods: {
     results(search){
-      this.searchFilm = search;
+      this.filmFound = search;
+      axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          api_key: 'eddeb9cc139fc5540af4fe0bcd294c59', 
+          query: this.filmFound,
+        }
+      })
+      .then(axiosResponse => {
+        this.filmFound = axiosResponse.data.results
+      })
     },
   },
-  mounted(){
-    axios.get('https://api.themoviedb.org/3/search/movie', {
-      params: {
-        api_key: 'eddeb9cc139fc5540af4fe0bcd294c59', 
-        query: this.searchFilm,
-      }
-    })
-    .then(axiosResponse => {
-      this.filmFound = axiosResponse.
-    })
-  }
 };
 </script>
 

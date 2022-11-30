@@ -8,7 +8,7 @@
 export default {
     name: 'MainPage',
     props: {
-        Film: String,
+        Film: Array,
     }
 }
 </script>

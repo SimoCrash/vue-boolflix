@@ -4,7 +4,7 @@
         <img src="https://boolflix.netlify.app/img/logo.png" alt="">
         <input type="text" placeholder="Cerca film..." 
         v-model="textToSearch"
-        @change="$emit('searchValue', textToSearch)">
+        @keyup.enter="print">
     </div>
   </div>
 </template>
@@ -17,6 +17,11 @@ export default {
             textToSearch: '',
         };
     },
+    methods: {
+        print(){
+            this.$emit('searchValue', this.textToSearch)
+        }
+    }
 
 };
 </script>

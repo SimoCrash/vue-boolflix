@@ -6,6 +6,7 @@
       <li>Titolo Originale: {{ films.original_title }}</li> 
       <li>Lingua: {{ films.original_language }} <lang-flag :iso="films.original_language"/></li>
       <li>Voto: {{ films.vote_average }}</li>
+      <li>Immagine: {{films.poster_path}}</li>
     </ul>
 
     <h2>Series</h2>

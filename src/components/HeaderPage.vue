@@ -6,7 +6,8 @@
             <form @submit.prevent="$emit('searchValue', textToSearch)">
                 <label for="query">
                     <input type="text" placeholder="Cerca film..." 
-                    v-model="textToSearch">
+                    v-model="textToSearch"
+                    @keyup.enter="$emit('searchValue', textToSearch)">
                 </label>
                 <button>Cerca</button>
             </form>

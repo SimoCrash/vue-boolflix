@@ -18,6 +18,7 @@ export default {
   data(){
     return {
       baseApiUrl: 'https://api.themoviedb.org/3',
+      baseApiUrlImg: 'https://image.tmdb.org/t/p/w342',
       apiKey: 'eddeb9cc139fc5540af4fe0bcd294c59',
       resultsLanguage: 'it-IT',
       arrFilmFound: null,
@@ -46,6 +47,15 @@ export default {
       })
       .then(axiosResponse => {
         this.arrTvFound = axiosResponse.data.results;
+      });
+
+      axios.get(this.baseApiUrlImg, {
+        params: {
+          poster_path: '',
+        },
+      })
+      .then(axiosResponse => {
+        this.arrFilmFound = axiosResponse.data.results;
       })
     },
   },

@@ -6,7 +6,7 @@
       <li>Titolo Originale: {{ films.original_title }}</li> 
       <li>Lingua: {{ films.original_language }} <lang-flag :iso="films.original_language"/></li>
       <li>Voto: {{ films.vote_average }}</li>
-      <li>Immagine: {{films.poster_path}}</li>
+      <li><img :src="(baseApiUrlImg + films.poster_path)" alt=""></li>
     </ul>
 
     <h2>Series</h2>
@@ -23,6 +23,12 @@
 <script>
 export default {
     name: 'MainPage',
+    data(){
+      return {
+      baseApiUrlImg: 'https://image.tmdb.org/t/p/w342',
+
+      } 
+    },
     props: {
         film: Array,
         arrTvFound: Array,

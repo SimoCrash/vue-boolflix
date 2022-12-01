@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage @searchValue="results"/>
-    <MainPage :film="filmFound"/>
+    <MainPage :film="arrFilmFound" :arrTvFound="arrTvFound"/>
   </div>
 </template>
 
@@ -17,28 +17,45 @@ export default {
   },
   data(){
     return {
-      filmFound: null,
+      baseApiUrl: 'https://api.themoviedb.org/3',
+      apiKey: 'eddeb9cc139fc5540af4fe0bcd294c59',
+      resultsLanguage: 'it-IT',
+      arrFilmFound: null,
+      arrTvFound: null,
     };
   },
   methods: {
     results(search){
-      this.filmFound = search;
-      axios.get('https://api.themoviedb.org/3/search/movie', {
+      axios.get(this.baseApiUrl + '/search/movie', {
         params: {
-          api_key: 'eddeb9cc139fc5540af4fe0bcd294c59', 
-          query: this.filmFound,
-        }
+          api_key: this.apiKey, 
+          query: search,
+          language: this.resultsLanguage,
+        },
       })
       .then(axiosResponse => {
-        this.filmFound = axiosResponse.data.results
+        this.arrFilmFound = axiosResponse.data.results;
+      });
+
+      axios.get(this.baseApiUrl + '/search/movie', {
+        params: {
+          api_key: this.apiKey, 
+          query: search,
+          language: this.resultsLanguage,
+        },
+      })
+      .then(axiosResponse => {
+        this.arrTvFound = axiosResponse.data.results;
       })
     },
   },
 };
 </script>
 
-<style>
-
+<style lang="scss">
+  h2 {
+    margin-top: 0;
+  }
 </style>
 
 

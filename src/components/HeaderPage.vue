@@ -2,9 +2,15 @@
   <div>
     <div class="container-header">
         <img src="https://boolflix.netlify.app/img/logo.png" alt="">
-        <input type="text" placeholder="Cerca film..." 
-        v-model="textToSearch"
-        @keyup.enter="print">
+        <div>
+            <form @submit.prevent="$emit('searchValue', textToSearch)">
+                <label for="query">
+                    <input type="text" placeholder="Cerca film..." 
+                    v-model="textToSearch">
+                </label>
+                <button>Cerca</button>
+            </form>
+        </div>
     </div>
   </div>
 </template>
@@ -18,9 +24,7 @@ export default {
         };
     },
     methods: {
-        print(){
-            this.$emit('searchValue', this.textToSearch)
-        }
+
     }
 
 };
@@ -33,7 +37,7 @@ export default {
         align-items: center;
         background-color: black;
         height: 15vh;
-        img, input {
+        img, input, button {
             margin: 1rem;
         }
     }

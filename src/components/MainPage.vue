@@ -7,6 +7,7 @@
       <li>Lingua: {{ films.original_language }} <lang-flag :iso="films.original_language"/></li>
       <li>Voto: {{ films.vote_average }}</li>
       <li><img :src="(baseApiUrlImg + films.poster_path)" alt=""></li>
+      <li><font-awesome-icon v-for="item in rating" :key="item" icon="fa-solid fa-star"/>{{item}}</li>
     </ul>
 
     <h2>Series</h2>

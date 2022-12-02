@@ -10,6 +10,7 @@
         :language="films.original_language"
         :score="convertStar(films.vote_average)"
         :imgUrl="baseApiUrlImg + films.poster_path"
+        :overview="films.overview"
       />
     </div>
     
@@ -25,6 +26,7 @@
         :language="TvFound.original_language"
         :score="convertStar(TvFound.vote_average)"
         :imgUrl="baseApiUrlImg + TvFound.poster_path"
+        :overview="TvFound.overview"
       />
     </div>
     <!-- <ul v-for="TvSeries in arrTvFound" :key="TvSeries.id">

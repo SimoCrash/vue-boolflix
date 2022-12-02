@@ -5,10 +5,11 @@
         v-on:mouseleave="mouseleave"
     >
       <div v-if="message === true"><img :src="imgUrl" alt=""></div>
-      <div v-if="message === false">
+      <div v-if="message === false" class="details">
         <div>Titolo: {{ title }}</div> 
         <div>Titolo Originale: {{ originalTitle }}</div> 
         <div>Lingua:<lang-flag :iso="language"/></div>
+        <div>Descrizione: {{ overview }}</div>
         <div><font-awesome-icon v-for="item in score.score" :key="item" icon="fa-solid fa-star" :style="{color: 'gold'}"/><font-awesome-icon v-for="item in (score.maxScore - score.score)" :key="item" icon="fa-regular fa-star" :style="{color: 'gold'}"/></div>
       </div>
   </div>
@@ -23,7 +24,8 @@ export default {
         originalTitle: String,
         language: String,
         score: Number,
-        imgUrl: String
+        imgUrl: String,
+        overview: String
     },
     data() {
         return {
@@ -43,5 +45,14 @@ export default {
 </script>
 
 <style>
-
+    .details{
+        background-color: grey;
+        height: 513px;
+        width: 342px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 </style>

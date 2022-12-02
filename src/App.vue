@@ -37,7 +37,7 @@ export default {
         this.arrFilmFound = axiosResponse.data.results;
       });
 
-      axios.get(this.baseApiUrl + '/search/movie', {
+      axios.get(this.baseApiUrl + '/search/tv', {
         params: {
           api_key: this.apiKey, 
           query: search,

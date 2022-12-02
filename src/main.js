@@ -12,7 +12,8 @@ new Vue({
 
 import { library } from '@fortawesome/fontawesome-svg-core'; // libreria icone del progetto
 import { faChevronRight, faHatWizard, faStar } from '@fortawesome/free-solid-svg-icons'; // importiamo le icone che ci servono
+import { faStar as faEmptyStar} from '@fortawesome/free-regular-svg-icons'; // importiamo le icone che ci servono
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'; // importazione del componente FontAwesomeIcon
 
-library.add(faChevronRight, faHatWizard, faStar); // aggiungiamo le icone nella libreria del progetto
+library.add(faChevronRight, faHatWizard, faStar, faEmptyStar); // aggiungiamo le icone nella libreria del progetto
 Vue.component('FontAwesomeIcon', FontAwesomeIcon); // registrazione globale del componente FontAwesomeIcon per renderlo usabile in qualsiasi parte del codice senza ulteriore importazione

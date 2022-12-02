@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1 v-if="film.length">Movies</h1>
-    <div class="container">
-      <FlixCard
+    <div class="container"
+    >
+      <FlixCard 
         v-for="films in film" :key="films.id"
         :title="films.title"
         :originalTitle="films.original_title"
@@ -56,7 +57,7 @@ export default {
           score: Math.ceil((score * maxScore) / originalMaxScore),
           maxScore
         }
-      }
+      },
     },
     props: {
         film: Array,
@@ -78,5 +79,6 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 1rem;
     }
 </style>
